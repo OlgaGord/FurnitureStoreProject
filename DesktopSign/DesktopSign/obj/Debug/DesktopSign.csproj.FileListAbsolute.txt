@@ -1,0 +1,20 @@
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csprojAssemblyReference.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.Properties.Resources.resources
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csproj.GenerateResource.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csproj.CoreCompileInputs.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\bin\Debug\DesktopSign.exe.config
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\bin\Debug\DesktopSign.exe
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\bin\Debug\DesktopSign.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.exe
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\DesktopSign\obj\Debug\DesktopSign.FormAuth.resources
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csprojAssemblyReference.cache
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.FormAuth.resources
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.Properties.Resources.resources
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csproj.GenerateResource.cache
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.csproj.CoreCompileInputs.cache
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.exe
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\obj\Debug\DesktopSign.pdb
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\bin\Debug\DesktopSign.exe.config
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\bin\Debug\DesktopSign.exe
+D:\heritage\finalProject\Final_1_07\2019.07.01\DesktopSign\DesktopSign\bin\Debug\DesktopSign.pdb

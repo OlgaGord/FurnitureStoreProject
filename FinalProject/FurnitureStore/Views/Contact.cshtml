@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FurnitureStore.Models.User>
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>Contact</h2>
+
+
+public class ContactFormModel
+{
+  [Required]
+  public string Name { get; set; }
+  [Required]
+  public string LastName { get; set; }
+  [Required]
+  public string Email { get; set; }
+  [Required]
+  public string Message { get; set; }
+}
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.shoppingCartId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userHint)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.shoppingCartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userHint)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.userId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.userId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.userId })
+            </td>
+        </tr>
+    }
+
+    </table>*@

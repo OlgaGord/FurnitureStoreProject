@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FurnitureStore.Models.Furniture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.furnitureTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.furniturePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.furnitureInStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.furnitureOnOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.categoryTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.furnitureTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.furniturePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.furnitureInStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.furnitureOnOrder)
+        </td>
+        <td>
+            <img src="~/Content/images/@Html.DisplayFor(modelItem => item.images)" alt="Furniture" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.categoryTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.furnitureId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.furnitureId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.furnitureId })
+        </td>
+    </tr>
+}
+
+</table>

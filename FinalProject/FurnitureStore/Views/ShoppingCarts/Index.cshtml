@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FurnitureStore.Models.ShoppingCart>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.shoppingCartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.orderType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Furniture.furnitureTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.shoppingCartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.orderType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Furniture.furnitureTitle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.shoppingCartId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.shoppingCartId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.shoppingCartId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

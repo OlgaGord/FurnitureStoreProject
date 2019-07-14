@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FurnitureStore.Models.ShoppingCart>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2>Shopping cart</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Furniture.furnitureTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Furniture.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productSum)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Furniture.furnitureTitle)
+                </td>
+                <td class="div_image_show">
+                    <img class="img_show" src="~/Content/images/@Html.DisplayFor(modelItem => item.Furniture.images)" alt="Furniture" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productSum) $
+                </td>
+                <td>
+                    @Html.ActionLink("Add", "Add", new { id = item.shoppingCartId }) |
+                    @Html.ActionLink("Remove", "Remove", new { id = item.shoppingCartId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.shoppingCartId })
+                </td>
+            </tr>
+        }
+    }
+    <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td>
+            @Session["sum"].ToString() $
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+@if (Session["cart"] != null)
+{
+    @Html.ActionLink("Pay", "Index", "Pay", null, new { @class = "btn btn-primary btn-lg" })
+}

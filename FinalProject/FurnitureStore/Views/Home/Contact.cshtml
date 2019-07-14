@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Find our store</title>
+    <meta name="viewport"
+          content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
+          rel="stylesheet" />
+     <script src="~/Scripts/map.js"></script>
+</head>
+
+<body>
+    <div>
+        <h3>Find the city and check if there are our stores there</h3>
+        <input type="text" id="txtAddress" /><button id="btnFindIt">
+            Find It
+        </button>
+    </div>
+
+    <div class="container">
+        <div id="map"></div>
+      @*  <button id="easeToOttawa">Ottawa</button>*@
+        <button id="easeHome">Home</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model FurnitureStore.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Order details";
+}
+
+<head>
+
+</head>
+
+<h2>Payment</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.requiredDate)
+        </th>
+        <th></th>
+    </tr>
+    @using (Html.BeginForm("Pay", "Pay", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+
+        <tr>
+            <td>
+                @Html.TextBoxFor(modelItem => modelItem.requiredDate, new { @id = "datepicker", @class = "form-control" })
+                @Html.ValidationMessageFor(modelItem => modelItem.requiredDate, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Choose" class="btn btn-default" />
+                    </div>
+                </div>
+                @*@Html.ActionLink("Choose", "Pay")*@
+            </td>
+        </tr>
+        <tr>
+            <td>Total: </td>
+            <td>@Session["sum"].ToString() $</td>
+        </tr>
+    }
+</table>
+
+@section scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script>
+        $(function () { $("#datepicker").datepicker(); });
+    </script>
+}
+

@@ -1,0 +1,156 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.jumbotron {
+    background-image: url("images/main1.jpg");
+    height:600px;
+    opacity:0.8;
+}
+
+    .jumbotron:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        transition: 3s;
+    }
+
+
+.show {
+    height: 27vh;
+    border-style: ridge;
+    border-radius: 5px;
+    margin-top: 1vh;
+    margin:0 auto;
+    padding-top: 5vh;
+    font-size: 3vh;
+    /*width:90%;*/
+}
+
+    .show:hover {
+        background: rgba(0,0,0,0.2);
+        transition: 3s;
+        font-weight:bold;
+    }
+    .show:hover img_show {
+        visibility: visible;
+        
+    }
+.div_image_show:hover {
+    transition: 3s;
+    transform: scale(1.3);
+
+}
+.col-md-3 {
+    margin:0 auto;
+}
+
+.buy {
+    margin-top: 6.5vh;
+}
+
+#map {
+    margin:3%;
+    width: 90%;
+    height: 90vh;
+}
+
+
+/*animation*/
+
+/* WebKit and Opera browsers */
+@-webkit-keyframes spinner {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(-360deg);
+    }
+}
+
+/* all other browsers */
+@keyframes spinner {
+    from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+    }
+}
+#stage {
+    margin: 1em auto;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+    padding:1%;
+}
+
+#spinner {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+    #spinner:hover {
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+    }
+
+    #spinner img {
+        position: absolute;
+        border: 1px solid #ccc;
+        background: rgba(255,255,255,0.8);
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .text {
+        column-count:3;
+    }
+
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+
+

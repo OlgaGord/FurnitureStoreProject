@@ -1,0 +1,66 @@
+﻿@model FurnitureStore.Models.Furniture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Furniture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.furnitureTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.furnitureTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.furniturePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.furniturePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.furnitureInStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.furnitureInStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.furnitureOnOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.furnitureOnOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.categoryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.categoryTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.furnitureId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

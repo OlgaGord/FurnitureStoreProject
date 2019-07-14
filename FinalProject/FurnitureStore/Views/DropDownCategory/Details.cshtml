@@ -1,0 +1,27 @@
+﻿@model FurnitureStore.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.categoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

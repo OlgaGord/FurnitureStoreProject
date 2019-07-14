@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="furnitureModel1StoreContainer" CdmEntityContainer="furnitureEntities2">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="furnitureModel1.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="categoryTitle" ColumnName="categoryTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Furnitures">
+      <EntityTypeMapping TypeName="furnitureModel1.Furniture">
+        <MappingFragment StoreEntitySet="Furniture">
+          <ScalarProperty Name="furnitureId" ColumnName="furnitureId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="furnitureTitle" ColumnName="furnitureTitle" />
+          <ScalarProperty Name="furniturePrice" ColumnName="furniturePrice" />
+          <ScalarProperty Name="furnitureInStock" ColumnName="furnitureInStock" />
+          <ScalarProperty Name="furnitureOnOrder" ColumnName="furnitureOnOrder" />
+          <ScalarProperty Name="images" ColumnName="images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="furnitureModel1.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="requiredDate" ColumnName="requiredDate" />
+          <ScalarProperty Name="orderType" ColumnName="orderType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="furnitureModel1.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="orderDetailsId" ColumnName="orderDetailsId" />
+          <ScalarProperty Name="furnitureId" ColumnName="furnitureId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="furniturePrice" ColumnName="furniturePrice" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="deliveryStatus" ColumnName="deliveryStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="furnitureModel1.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="paymentTypeId" ColumnName="paymentTypeId" />
+          <ScalarProperty Name="totalSum" ColumnName="totalSum" />
+          <ScalarProperty Name="paymentDate" ColumnName="paymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="furnitureModel1.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="paymentTypeId" ColumnName="paymentTypeId" />
+          <ScalarProperty Name="paymentType1" ColumnName="paymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="furnitureModel1.Profile">
+        <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="profileId" ColumnName="profileId" />
+          <ScalarProperty Name="profileName" ColumnName="profileName" />
+          <ScalarProperty Name="profilePrivileges" ColumnName="profilePrivileges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCarts">
+      <EntityTypeMapping TypeName="furnitureModel1.ShoppingCart">
+        <MappingFragment StoreEntitySet="ShoppingCart">
+          <ScalarProperty Name="shoppingCartId" ColumnName="shoppingCartId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="shoppingCartDate" ColumnName="shoppingCartDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="furnitureModel1.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="shoppingCartId" ColumnName="shoppingCartId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userHint" ColumnName="userHint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserProfile" TypeName="furnitureModel1.UserProfile" StoreEntitySet="UserProfile">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="profileId" ColumnName="profileId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="userId" ColumnName="userId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

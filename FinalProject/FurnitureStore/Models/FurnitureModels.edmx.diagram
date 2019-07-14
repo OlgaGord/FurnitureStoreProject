@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="179801ef6f564844b7c269c2aa10afae" Name="Diagram1">
+        <EntityTypeShape EntityType="furnitureModel.Category" Width="1.5" PointX="1" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.Furniture" Width="1.5" PointX="7.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.Order" Width="1.5" PointX="4.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.OrderDetail" Width="1.5" PointX="4.125" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.Payment" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.PaymentType" Width="1.5" PointX="10" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.Profile" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.ShoppingCart" Width="1.5" PointX="6.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="furnitureModel.User" Width="1.5" PointX="1.25" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="furnitureModel.FK_FURNITUR_ASSOCIATI_CATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_ORDERDET_ASSOCIATI_FURNITUR" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_ORDER_ASSOCIATI_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_ORDERDET_ASSOCIATI_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_PAYMENT_ASSOCIATI_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_SHOPPING_ASSOCIATI_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_PAYMENT_ASSOCIATI_PAYMENTT" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="furnitureModel.FK_ShoppingCart_Furniture" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

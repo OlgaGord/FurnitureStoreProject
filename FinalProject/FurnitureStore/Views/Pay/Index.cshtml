@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FurnitureStore.Models.PaymentType>
+
+@{
+    ViewBag.Title = "Payment type";
+}
+
+<h2>Payment</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentType1)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.paymentType1)
+                </td>
+                <td>
+                    @Html.ActionLink("Choose", "ToDate", new { id = item.paymentTypeId })
+                </td>
+            </tr>
+        }
+    }
+    <tr>
+        <td>Total: </td>
+        <td>@Session["sum"].ToString() $</td>
+    </tr>
+
+</table>
+

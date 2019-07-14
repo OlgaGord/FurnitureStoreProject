@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<FurnitureStore.Models.Furniture>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    <h1>NEWVISION FURNITURE STORE</h1>
+    <p class="lead">NewVision Furniture Store is the best.</p>
+    <p><a href="~/Home/About" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<h1>Our products:</h1>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("AddToCart", "AddToCart"))
+    {
+        @Html.HiddenFor(modelItem => item.furnitureId)
+        <div class="row show">
+            <div class="col-md-2">
+                <h3 name="reportName" value=item.furnitureTitle>@Html.DisplayFor(modelItem => item.furnitureTitle)</h3>
+            </div>
+            <div class="col-md-4 div_image_show">
+                <img class="img_show" src="~/Content/images/@Html.DisplayFor(modelItem => item.images)" alt="Furniture" />
+            </div>
+            <div class="col-md-2">
+                <span>Price:</span><br />
+                @Html.DisplayFor(modelItem => item.furniturePrice)<span>$</span><br />
+                @*  @Html.Hidden("test", " " + item.furnitureTitle)*@
+                @*@Html.Hidden("id", item.furnitureId)*@
+            </div>
+            <div class="col-md-3">
+                @*    <input type="button" onclick="addToCart()" />*@
+                <input type="submit" name="AddToCart" value="AddToCart" class="btn btn-primary btn-lg buy" />
+            </div>
+        </div>
+        @*using (Html.BeginForm("Report", "FurnituresController"))
+            {
+                <input type="text" name="reportName" />
+                <input type="submit" />
+            }
+            <Script>
+                var addToCart = function () {
+                    alert("hello");
+                    console.log();
+                }
+            </Script>*@
+    }
+}
+
+@*@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".buy").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}*@

@@ -1,0 +1,21 @@
+﻿@model FurnitureStore.Models.User
+
+@{
+    ViewBag.Title = "Welcome, " + @Html.DisplayFor(m => m.userName);
+}
+
+<h2>@ViewBag.Title!</h2>
+<div class="row">
+    <div>
+        <p>
+            You are logged in as @Html.DisplayFor(m => m.Profiles.First().profileName)
+        </p>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary btn-lg" })
+
+    @Html.ActionLink("To Shopping cart", "Index", "UserShoppingCarts", null, new { @class = "btn btn-primary btn-lg" })
+</div>
+

@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<FurnitureStore.Models.Furniture>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Our products:</h2>
+<h3>To see all products by category select category</h3>
+@using (Html.BeginForm())
+{
+    <p>
+        Select category: @Html.DropDownList("SelectedCategory")
+        <input type="submit" value="Filter" />
+    </p>
+}
+<h1>Our products:</h1>
+
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("AddToCart", "AddToCart"))
+    {
+        <h3>@Html.HiddenFor(modelItem => item.furnitureId)</h3>
+        <div class="row show">
+            <div class="col-md-2">
+                <h3>@Html.DisplayFor(modelItem => item.furnitureTitle)</h3>
+            </div>
+            <div class="col-md-4 div_image_show">
+                <img class="img_show" src="~/Content/images/@Html.DisplayFor(modelItem => item.images)" alt="Furniture" />
+            </div>
+            <div class="col-md-2 price">
+                <span>Price:</span><br />
+                @Html.DisplayFor(modelItem => item.furniturePrice)<span>$</span><br />
+            </div>
+            <div class="col-md-3">
+                @*<input type="submit" class="btn btn-primary btn-lg buy" title="Index" value="AddToCart"
+                    onclick="AddQuantity()" )'" />*@
+                @*  onclick="location.href='@Url.Action("Index", "ShoppingCarts", "ShoppingCarts")'" />*@
+
+                @*<button class="btn btn-primary btn-lg buy">Add to cart</button>*@
+                <input type="submit" value="AddToCart" class="btn btn-primary btn-lg buy" />
+            </div>
+
+        </div>
+    }
+}

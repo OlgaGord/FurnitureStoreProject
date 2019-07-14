@@ -1,0 +1,100 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Furniture Store</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    @*<link href="~/css/font-awesome.css" rel="stylesheet" />*@
+
+    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("NewVision Furniture Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Products", "Index", "DropDownCategory")</li>
+
+                    @if (Session["profileId"] != null && Session["profileId"].ToString() == "3")
+                    {
+                        <li class="products">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Manage Products
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Manage Products", "", "Furnitures")</li>
+                                <li>@Html.ActionLink("Manage Categories", "", "Categories")</li>
+                            </ul>
+                        </li>
+                    }
+                    @if (Session["profileId"] != null && Session["profileId"].ToString() == "1")
+                    {
+                        <li>@Html.ActionLink("Manage Users", "", "Users")</li>
+                    }
+                    @*<li>@Html.ActionLink("Manage history", "Index", "OrderDetails")</li>
+        <li>@Html.ActionLink("Shopping carts", "Index", "ShoppingCarts")</li>*@
+
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if (Session["userId"] == null)
+                    {
+                        <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                    }
+                    else
+                    {
+
+                        <li>@Html.ActionLink("History", "Index", "UserOrderDetails")</li>
+                        <li>
+                            @Html.ActionLink("Hello, " + @Session["user"], "Index", "DropDownCategory")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Log out", "LogOff", "Account")
+                        </li>
+                    }
+                </ul>
+                <div>
+                    <a href="~/UserShoppingCarts/Index">
+                        <img src="~/Content/images/shopping-cart1.png">
+                        @*    <a href="@Url.Action("Myorder", "AddToCart")" class="btn btn-info btn-lg">*@
+                        <span class="badge">@Session["count"]</span>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - NewVision Furniture Store</p>
+            <p>Developed by Olga Gordeyeva</p>
+        </footer>
+    </div>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

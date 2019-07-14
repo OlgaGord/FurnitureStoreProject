@@ -1,0 +1,70 @@
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\bin\Debug\Authentication.pdb
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.pdb
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\bin\Debug\Authentication.dll.config
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\bin\Debug\Authentication.dll
+H:\2-C#  dotNet\GUI Apps\Authentication\Authentication\obj\Debug\Authentication.dll
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\bin\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\bin\Debug\Authentication.dll.config
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.dll
+C:\Users\Olga\source\repos\lab3_advanced2\Authentication\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\bin\Debug\Authentication.dll.config
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\bin\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.dll
+C:\Users\Olga\source\repos\lab3_advanced2\WindowsForms IMS\Authentication\obj\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\bin\Debug\Authentication.dll.config
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\bin\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.dll
+C:\Users\Olga\source\repos\advanced_assV2\WindowsFormsApp5\Authentication\obj\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\bin\Debug\Authentication.dll.config
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\bin\Debug\Authentication.pdb
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.dll
+C:\Users\Olga\source\repos\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\bin\Debug\Authentication.dll.config
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\bin\Debug\Authentication.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.dll
+D:\Canada\Home\3 asp.net mvc\Olga\ass_V5_advancedNet\WindowsFormsApp5\Authentication\obj\Debug\Authentication.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\bin\Debug\Authentication.dll.config
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\bin\Debug\Authentication.pdb
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.csprojAssemblyReference.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\WindowsFormsApp1.FormAuth.resources
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.Properties.Resources.resources
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.csproj.GenerateResource.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.csproj.CoreCompileInputs.cache
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.csproj.CopyComplete
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.dll
+D:\Canada\Home\3 asp.net mvc\Olga\DesktopSign\Authentication\obj\Debug\Authentication.pdb

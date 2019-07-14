@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="furnitureModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="categoryTitle" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="Furniture">
+          <Key>
+            <PropertyRef Name="furnitureId" />
+          </Key>
+          <Property Name="furnitureId" Type="int" Nullable="false" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="furnitureTitle" Type="varchar" MaxLength="254" />
+          <Property Name="furniturePrice" Type="float" />
+          <Property Name="furnitureInStock" Type="int" />
+          <Property Name="furnitureOnOrder" Type="int" />
+          <Property Name="images" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="orderDate" Type="datetime" />
+          <Property Name="requiredDate" Type="datetime" />
+          <Property Name="orderType" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="orderDetailsId" />
+          </Key>
+          <Property Name="orderDetailsId" Type="int" Nullable="false" />
+          <Property Name="furnitureId" Type="int" Nullable="false" />
+          <Property Name="orderId" Type="int" Nullable="false" />
+          <Property Name="furniturePrice" Type="float" />
+          <Property Name="quantity" Type="float" />
+          <Property Name="deliveryStatus" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentId" />
+          </Key>
+          <Property Name="paymentId" Type="int" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="paymentTypeId" Type="int" />
+          <Property Name="totalSum" Type="float" />
+          <Property Name="paymentDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="paymentTypeId" />
+          </Key>
+          <Property Name="paymentTypeId" Type="int" Nullable="false" />
+          <Property Name="paymentType" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="profileId" />
+          </Key>
+          <Property Name="profileId" Type="int" Nullable="false" />
+          <Property Name="profileName" Type="varchar" MaxLength="254" />
+          <Property Name="profilePrivileges" Type="varchar" MaxLength="254" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="shoppingCartId" />
+          </Key>
+          <Property Name="shoppingCartId" Type="int" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="shoppingCartDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="userId" />
+            <PropertyRef Name="profileId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="profileId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="shoppingCartId" Type="int" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="254" />
+          <Property Name="password" Type="varchar" MaxLength="254" />
+          <Property Name="userHint" Type="int" />
+        </EntityType>
+        <Association Name="FK_FURNITUR_ASSOCIATI_CATEGORI">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Furniture">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_ASSOCIATI_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERDET_ASSOCIATI_FURNITUR">
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furniture">
+              <PropertyRef Name="furnitureId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="furnitureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERDET_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_ASSOCIATI_PAYMENTT">
+          <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="paymentTypeId" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERPROF_USERPROFI_PROFILE">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="profileId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="profileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERPROF_USERPROFI_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="furnitureModel1StoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Furniture" EntityType="Self.Furniture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FURNITUR_ASSOCIATI_CATEGORI" Association="Self.FK_FURNITUR_ASSOCIATI_CATEGORI">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Furniture" EntitySet="Furniture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_ASSOCIATI_USERS" Association="Self.FK_ORDER_ASSOCIATI_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERDET_ASSOCIATI_FURNITUR" Association="Self.FK_ORDERDET_ASSOCIATI_FURNITUR">
+            <End Role="Furniture" EntitySet="Furniture" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERDET_ASSOCIATI_ORDER" Association="Self.FK_ORDERDET_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_ASSOCIATI_ORDER" Association="Self.FK_PAYMENT_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_ASSOCIATI_PAYMENTT" Association="Self.FK_PAYMENT_ASSOCIATI_PAYMENTT">
+            <End Role="PaymentType" EntitySet="PaymentType" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_ASSOCIATI_ORDER" Association="Self.FK_SHOPPING_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERPROF_USERPROFI_PROFILE" Association="Self.FK_USERPROF_USERPROFI_PROFILE">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERPROF_USERPROFI_USERS" Association="Self.FK_USERPROF_USERPROFI_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="furnitureModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="Int32" Nullable="false" />
+          <Property Name="categoryTitle" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Furnitures" Relationship="Self.FK_FURNITUR_ASSOCIATI_CATEGORI" FromRole="Categories" ToRole="Furniture" />
+        </EntityType>
+        <EntityType Name="Furniture">
+          <Key>
+            <PropertyRef Name="furnitureId" />
+          </Key>
+          <Property Name="furnitureId" Type="Int32" Nullable="false" />
+          <Property Name="categoryId" Type="Int32" Nullable="false" />
+          <Property Name="furnitureTitle" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="furniturePrice" Type="Double" />
+          <Property Name="furnitureInStock" Type="Int32" />
+          <Property Name="furnitureOnOrder" Type="Int32" />
+          <Property Name="images" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_FURNITUR_ASSOCIATI_CATEGORI" FromRole="Furniture" ToRole="Categories" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_ORDERDET_ASSOCIATI_FURNITUR" FromRole="Furniture" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="orderDate" Type="DateTime" Precision="3" />
+          <Property Name="requiredDate" Type="DateTime" Precision="3" />
+          <Property Name="orderType" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ORDER_ASSOCIATI_USERS" FromRole="Order" ToRole="Users" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_ORDERDET_ASSOCIATI_ORDER" FromRole="Order" ToRole="OrderDetails" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_PAYMENT_ASSOCIATI_ORDER" FromRole="Order" ToRole="Payment" />
+          <NavigationProperty Name="ShoppingCarts" Relationship="Self.FK_SHOPPING_ASSOCIATI_ORDER" FromRole="Order" ToRole="ShoppingCart" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="orderDetailsId" />
+          </Key>
+          <Property Name="orderDetailsId" Type="Int32" Nullable="false" />
+          <Property Name="furnitureId" Type="Int32" Nullable="false" />
+          <Property Name="orderId" Type="Int32" Nullable="false" />
+          <Property Name="furniturePrice" Type="Double" />
+          <Property Name="quantity" Type="Double" />
+          <Property Name="deliveryStatus" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Furniture" Relationship="Self.FK_ORDERDET_ASSOCIATI_FURNITUR" FromRole="OrderDetails" ToRole="Furniture" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_ORDERDET_ASSOCIATI_ORDER" FromRole="OrderDetails" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentId" />
+          </Key>
+          <Property Name="paymentId" Type="Int32" Nullable="false" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="paymentTypeId" Type="Int32" />
+          <Property Name="totalSum" Type="Double" />
+          <Property Name="paymentDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_PAYMENT_ASSOCIATI_ORDER" FromRole="Payment" ToRole="Order" />
+          <NavigationProperty Name="PaymentType" Relationship="Self.FK_PAYMENT_ASSOCIATI_PAYMENTT" FromRole="Payment" ToRole="PaymentType" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="paymentTypeId" />
+          </Key>
+          <Property Name="paymentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="paymentType1" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_PAYMENT_ASSOCIATI_PAYMENTT" FromRole="PaymentType" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="profileId" />
+          </Key>
+          <Property Name="profileId" Type="Int32" Nullable="false" />
+          <Property Name="profileName" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="profilePrivileges" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.UserProfile" FromRole="Profile" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="shoppingCartId" />
+          </Key>
+          <Property Name="shoppingCartId" Type="Int32" Nullable="false" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="shoppingCartDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_SHOPPING_ASSOCIATI_ORDER" FromRole="ShoppingCart" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="shoppingCartId" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="userHint" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ORDER_ASSOCIATI_USERS" FromRole="Users" ToRole="Order" />
+          <NavigationProperty Name="Profiles" Relationship="Self.UserProfile" FromRole="Users" ToRole="Profile" />
+        </EntityType>
+        <Association Name="FK_FURNITUR_ASSOCIATI_CATEGORI">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Furniture">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERDET_ASSOCIATI_FURNITUR">
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furniture">
+              <PropertyRef Name="furnitureId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="furnitureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_ASSOCIATI_USERS">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERDET_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOPPING_ASSOCIATI_ORDER">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYMENT_ASSOCIATI_PAYMENTT">
+          <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="paymentTypeId" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserProfile">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="furnitureEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Furnitures" EntityType="Self.Furniture" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCart" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_FURNITUR_ASSOCIATI_CATEGORI" Association="Self.FK_FURNITUR_ASSOCIATI_CATEGORI">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Furniture" EntitySet="Furnitures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERDET_ASSOCIATI_FURNITUR" Association="Self.FK_ORDERDET_ASSOCIATI_FURNITUR">
+            <End Role="Furniture" EntitySet="Furnitures" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_ASSOCIATI_USERS" Association="Self.FK_ORDER_ASSOCIATI_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERDET_ASSOCIATI_ORDER" Association="Self.FK_ORDERDET_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_ASSOCIATI_ORDER" Association="Self.FK_PAYMENT_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOPPING_ASSOCIATI_ORDER" Association="Self.FK_SHOPPING_ASSOCIATI_ORDER">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYMENT_ASSOCIATI_PAYMENTT" Association="Self.FK_PAYMENT_ASSOCIATI_PAYMENTT">
+            <End Role="PaymentType" EntitySet="PaymentTypes" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="UserProfile" Association="Self.UserProfile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="furnitureModel1StoreContainer" CdmEntityContainer="furnitureEntities2">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="furnitureModel1.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="categoryTitle" ColumnName="categoryTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Furnitures">
+            <EntityTypeMapping TypeName="furnitureModel1.Furniture">
+              <MappingFragment StoreEntitySet="Furniture">
+                <ScalarProperty Name="furnitureId" ColumnName="furnitureId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="furnitureTitle" ColumnName="furnitureTitle" />
+                <ScalarProperty Name="furniturePrice" ColumnName="furniturePrice" />
+                <ScalarProperty Name="furnitureInStock" ColumnName="furnitureInStock" />
+                <ScalarProperty Name="furnitureOnOrder" ColumnName="furnitureOnOrder" />
+                <ScalarProperty Name="images" ColumnName="images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="furnitureModel1.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="requiredDate" ColumnName="requiredDate" />
+                <ScalarProperty Name="orderType" ColumnName="orderType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="furnitureModel1.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="orderDetailsId" ColumnName="orderDetailsId" />
+                <ScalarProperty Name="furnitureId" ColumnName="furnitureId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="furniturePrice" ColumnName="furniturePrice" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="deliveryStatus" ColumnName="deliveryStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="furnitureModel1.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="paymentTypeId" ColumnName="paymentTypeId" />
+                <ScalarProperty Name="totalSum" ColumnName="totalSum" />
+                <ScalarProperty Name="paymentDate" ColumnName="paymentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="furnitureModel1.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentType">
+                <ScalarProperty Name="paymentTypeId" ColumnName="paymentTypeId" />
+                <ScalarProperty Name="paymentType1" ColumnName="paymentType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="furnitureModel1.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="profileId" ColumnName="profileId" />
+                <ScalarProperty Name="profileName" ColumnName="profileName" />
+                <ScalarProperty Name="profilePrivileges" ColumnName="profilePrivileges" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCarts">
+            <EntityTypeMapping TypeName="furnitureModel1.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCart">
+                <ScalarProperty Name="shoppingCartId" ColumnName="shoppingCartId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="shoppingCartDate" ColumnName="shoppingCartDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="furnitureModel1.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="shoppingCartId" ColumnName="shoppingCartId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userHint" ColumnName="userHint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserProfile" TypeName="furnitureModel1.UserProfile" StoreEntitySet="UserProfile">
+            <EndProperty Name="Profile">
+              <ScalarProperty Name="profileId" ColumnName="profileId" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="userId" ColumnName="userId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
